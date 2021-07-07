@@ -1,0 +1,13 @@
+<h1 style="color: green;">Article</h1>
+<%= link_to "Create New Article" , new_article_path %>
+<ul style="color: green;list-style-type:circle;">
+	<% @articles.each do |article| %>
+		<li  style="color: green; list-style-type:square;">
+			<h3 style="color: blue ;"><%= article.title %>   <br/> <%= article.body %> </h3>
+			<li><%= button_to 'Show', article_path(article.id)%></li>  <br/>    
+			<li><%= link_to "Edit", edit_article_path(article.id)%></li> <br /> 
+			<li><%= link_to "destroy", article_path(article.id), data: {:confirm => "Are you sure?"}, :method => :delete %></li>
+		</li><br />
+	<% end %>
+	
+</ul>
